@@ -6,14 +6,14 @@ import { useFormatter } from 'use-intl';
  *
  * A component rather than a call inside a table's `cell`, so the cell
  * function can stay the same when `now` moves: this re-renders with the new
- * `now` by itself (see `useColumnFormatter`).
+ * `now` by itself (see `useStableFormatter`).
  */
 export function RelativeTime({
   at,
   style,
 }: {
-  /** An ISO 8601 string, as the API sends it, or a `Date`. */
-  at: string | Date;
+  /** An ISO 8601 string, as the API sends it. */
+  at: string;
   /**
    * The length of the words: `long` ("3 minutes ago", the default), `short`
    * or `narrow`. It is `Intl.RelativeTimeFormat`'s `style` option, not CSS.

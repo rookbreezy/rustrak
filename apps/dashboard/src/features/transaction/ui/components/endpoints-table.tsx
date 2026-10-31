@@ -17,7 +17,7 @@ import { type ReactNode, useMemo } from 'react';
 import { useTranslations } from 'use-intl';
 import { failureTone } from '@/features/transaction/model/endpoints';
 import { RelativeTime } from '@/shared/ui/components/relative-time';
-import { useColumnFormatter } from '@/shared/ui/hooks/use-column-formatter';
+import { useStableFormatter } from '@/shared/ui/hooks/use-stable-formatter';
 
 const column = createDataTableColumnHelper<TransactionStatsResponse>();
 
@@ -63,7 +63,7 @@ export function EndpointsTable({
   period: ReactNode;
 }) {
   const t = useTranslations('performance');
-  const format = useColumnFormatter();
+  const format = useStableFormatter();
 
   const columns = useMemo(() => {
     const duration = (ms: number) => (

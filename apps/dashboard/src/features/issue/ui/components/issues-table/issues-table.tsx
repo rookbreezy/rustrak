@@ -31,8 +31,8 @@ import { toast } from 'sonner';
 import { useTranslations } from 'use-intl';
 import { issueMutations } from '@/features/issue/api/mutations';
 import type { IssueView } from '@/features/issue/model/issue-table';
-import { useColumnFormatter } from '@/shared/ui/hooks/use-column-formatter';
 import { useRouter } from '@/shared/ui/hooks/use-router';
+import { useStableFormatter } from '@/shared/ui/hooks/use-stable-formatter';
 import { DeleteIssuesDialog } from './delete-issues-dialog';
 import { type Assignable, issueColumns } from './issue-columns';
 
@@ -86,7 +86,7 @@ export function IssuesTable({
   releases,
 }: IssuesTableProps) {
   const t = useTranslations('issues');
-  const format = useColumnFormatter();
+  const format = useStableFormatter();
   const router = useRouter();
   const [deleting, setDeleting] = useState<IssueResponse[] | null>(null);
 

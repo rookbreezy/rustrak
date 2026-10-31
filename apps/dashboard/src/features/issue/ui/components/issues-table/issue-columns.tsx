@@ -17,7 +17,7 @@ import type { Assignable } from '@/features/issue/model/assignable';
 import { SEEN_WINDOWS } from '@/features/issue/model/issue-table';
 import { Link } from '@/shared/ui/components/link';
 import { RelativeTime } from '@/shared/ui/components/relative-time';
-import type { ColumnFormatter } from '@/shared/ui/hooks/use-column-formatter';
+import type { StableFormatter } from '@/shared/ui/hooks/use-stable-formatter';
 
 export type { Assignable } from '@/features/issue/model/assignable';
 
@@ -53,7 +53,7 @@ const NEW_FOR_MS = 7 * 24 * 60 * 60 * 1000;
 interface ColumnContext {
   projectId: number;
   t: ReturnType<typeof useTranslations<'issues'>>;
-  format: ColumnFormatter;
+  format: StableFormatter;
   members: Assignable[];
   me: number;
 }

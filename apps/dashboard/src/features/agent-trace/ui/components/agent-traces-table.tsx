@@ -12,7 +12,7 @@ import {
 import { type ReactNode, useMemo } from 'react';
 import { useTranslations } from 'use-intl';
 import { RelativeTime } from '@/shared/ui/components/relative-time';
-import { useColumnFormatter } from '@/shared/ui/hooks/use-column-formatter';
+import { useStableFormatter } from '@/shared/ui/hooks/use-stable-formatter';
 
 const column = createDataTableColumnHelper<AgentTraceSummary>();
 
@@ -49,7 +49,7 @@ export function AgentTracesTable({
   scope: ReactNode;
 }) {
   const t = useTranslations('agents');
-  const format = useColumnFormatter();
+  const format = useStableFormatter();
 
   const columns = useMemo(() => {
     const figure = { align: 'end' as const };

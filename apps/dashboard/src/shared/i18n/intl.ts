@@ -37,7 +37,7 @@ export interface IntlSnapshot {
    *
    * Never build a query key from it: each success moves it, and the new key
    * would fetch again. A table's columns do not close over it either: they
-   * use `useColumnFormatter` and `RelativeTime`, or every cell remounts on
+   * use `useStableFormatter` and `RelativeTime`, or every cell remounts on
    * each success.
    */
   now: Date;

@@ -12,8 +12,8 @@ import {
 import { type ReactNode, useMemo } from 'react';
 import { useTranslations } from 'use-intl';
 import { RelativeTime } from '@/shared/ui/components/relative-time';
-import { useColumnFormatter } from '@/shared/ui/hooks/use-column-formatter';
 import { useRouter } from '@/shared/ui/hooks/use-router';
+import { useStableFormatter } from '@/shared/ui/hooks/use-stable-formatter';
 import { AdoptionBar, HealthRate, VersionName } from './release-figures';
 
 const column = createDataTableColumnHelper<ReleaseSummary>();
@@ -70,7 +70,7 @@ export function ReleasesTable({
   scope: ReleaseScope;
 }) {
   const t = useTranslations('releases');
-  const format = useColumnFormatter();
+  const format = useStableFormatter();
   const router = useRouter();
 
   const columns = useMemo(() => {

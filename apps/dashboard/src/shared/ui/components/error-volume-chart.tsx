@@ -32,9 +32,9 @@ import {
   ChartTooltipSurface,
 } from '@/shared/ui/components/chart-tooltip';
 import {
-  type ColumnFormatter,
-  useColumnFormatter,
-} from '@/shared/ui/hooks/use-column-formatter';
+  type StableFormatter,
+  useStableFormatter,
+} from '@/shared/ui/hooks/use-stable-formatter';
 
 /**
  * Stack order, bottom to top. Errors sit on the baseline so the segment that
@@ -210,7 +210,7 @@ function bucketLabel(
  * which keeps its identity when `now` moves, so the tooltip is not rebuilt
  * after every read.
  */
-type Formatter = ColumnFormatter;
+type Formatter = StableFormatter;
 
 function makeTooltip(
   bucketMs: number | null,
@@ -280,7 +280,7 @@ export function ErrorVolumeChart({
   intervalHours,
   height = 260,
 }: ErrorVolumeChartProps) {
-  const format = useColumnFormatter();
+  const format = useStableFormatter();
   const t = useTranslations('charts');
 
   const series = useMemo(
